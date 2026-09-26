@@ -1,0 +1,215 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+@import "@xyflow/react/dist/style.css";
+
+/* High-End Editorial Design System - P.R.A.H.A.R.I. (Blue + White + Purple 60-30-10 Theme) */
+:root {
+  /* 60% Dominant: Clean White / Neutral Grounding */
+  --bg-base: #F8FAFC;
+  --bg-surface: #FFFFFF;
+
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94A3B8;
+
+  /* 30% Secondary: Structural Blue */
+  --color-cobalt: #2563EB;
+  --color-blue-deep: #1E40AF;
+  --color-sky: #0284C7;
+
+  /* 10% Accent: High-Impact Purple */
+  --color-purple: #7C3AED;
+  --color-purple-light: #F3E8FF;
+  --color-amber: #D97706;
+  --color-rose: #E11D48;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body, #root {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #F8FAFC;
+    color: #0F172A;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #7C3AED !important;
+    outline-offset: 2px !important;
+  }
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F8F6;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Tactical Light Dot Matrix Grid Background (60% White + 30% Blue + 10% Purple Glow) */
+.tactical-grid-bg {
+  background-color: #F8FAFC;
+  background-image: 
+    radial-gradient(ellipse at 50% 10%, rgba(124, 58, 237, 0.08) 0%, rgba(37, 99, 235, 0.04) 45%, rgba(248, 250, 252, 0.98) 80%),
+    radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.04) 1px, transparent 0);
+  background-size: 100% 100%, 24px 24px;
+}
+
+/* High-End Bento Cards (60% White Surface, 30% Blue Structural Borders, 10% Purple Hover Accent) */
+.bento-card-light {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 28px;
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.02),
+    0 8px 32px rgba(15, 23, 42, 0.03),
+    0 20px 48px rgba(37, 99, 235, 0.02);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card-light:hover {
+  border-color: rgba(124, 58, 237, 0.4);
+  box-shadow: 
+    0 4px 12px rgba(124, 58, 237, 0.08),
+    0 16px 40px rgba(37, 99, 235, 0.08),
+    0 32px 64px rgba(15, 23, 42, 0.04);
+  transform: translateY(-3px);
+}
+
+.bento-card-featured {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+  border: 1.5px solid rgba(124, 58, 237, 0.35);
+  border-radius: 28px;
+  box-shadow: 
+    0 10px 40px rgba(124, 58, 237, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+/* Cobalt Laser Flow Animation */
+@keyframes laser-flow-cobalt {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.laser-trace-cyan {
+  stroke-dasharray: 10 6;
+  animation: laser-flow-cobalt 2s linear infinite;
+}
+
+/* Cobalt Tactical Pulse Animation */
+@keyframes cobalt-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(37, 99, 235, 0);
+    transform: scale(1.03);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+    transform: scale(1);
+  }
+}
+
+.pulsing-cyan-node {
+  animation: cobalt-pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Purple Pulse Glow Animation for High Risk Alerts & Metric Cards */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.25);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.55);
+  }
+}
+
+.purple-pulse-glow {
+  animation: pulseGlow 2s infinite alternate ease-in-out;
+}
+
+@keyframes amber-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(217, 119, 6, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(217, 119, 6, 0);
+  }
+}
+
+.pulsing-amber-node {
+  animation: amber-pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Leaflet Light Customizer & Radar Markers */
+.leaflet-container {
+  background: #F1F5F9 !important;
+}
+.leaflet-popup-content-wrapper {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12) !important;
+  padding: 4px !important;
+}
+.leaflet-popup-tip {
+  background: #FFFFFF !important;
+}
+
+@keyframes radar-pulse-wave {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+.radar-ping-ring {
+  animation: radar-pulse-wave 2.2s infinite cubic-bezier(0, 0.2, 0.8, 1);
+}
+
+@keyframes radar-sweep-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.radar-sweeper {
+  animation: radar-sweep-rotate 8s linear infinite;
+  transform-origin: center center;
+}
+
