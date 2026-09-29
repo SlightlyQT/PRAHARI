@@ -179,13 +179,13 @@ const getCyberNodeIcon = (nodeData) => {
 
       <!-- Floating Premium Tooltip -->
       <div class="absolute bottom-[76px] left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none z-50 transition-all duration-300 group-hover:bottom-[80px]">
-        <div class="bg-[#0f0f0f] border border-slate-700/60 shadow-[0_10px_30px_rgba(0,0,0,0.8)] rounded-xl px-3 py-1.5 text-center whitespace-nowrap min-w-[120px]">
+        <div class="bg-[#0d1621] border border-slate-700/60 shadow-[0_10px_30px_rgba(0,0,0,0.8)] rounded-xl px-3 py-1.5 text-center whitespace-nowrap min-w-[120px]">
           <div class="text-[8px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">${nodeData.sub}</div>
           <div class="text-[11px] font-black text-white">${nodeData.label}</div>
           ${heat > 0 && !isTarget ? `<div class="text-[8px] font-bold ${pinColor} mt-1 tracking-wider bg-black/40 py-0.5 rounded border border-white/5">${heat}% RISK HEAT</div>` : ''}
           ${isTarget ? `<div class="text-[8px] font-bold text-red-500 mt-1 tracking-wider animate-pulse bg-red-950/30 py-0.5 rounded border border-red-900/50">PREDICTED TARGET</div>` : ''}
         </div>
-        <div class="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-[#0f0f0f]"></div>
+        <div class="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-[#0d1621]"></div>
       </div>
 
     </div>
@@ -332,7 +332,7 @@ export default function SystemArchitecture() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-slate-100 flex flex-col overflow-hidden">
+    <div className="min-h-screen bg-[#05080d] text-slate-100 flex flex-col overflow-hidden">
       {/* Global CSS for the Map Tiles and Flowing Edges */}
       <style>{`
         /* Bulletproof dark map using native OSM tiles inverted */
@@ -358,7 +358,7 @@ export default function SystemArchitecture() {
       `}</style>
 
       {/* Header */}
-      <div className="bg-[#0a0a0a] border-b border-slate-800 p-4 flex items-center justify-between shadow-sm shrink-0">
+      <div className="bg-[#0a1119] border-b border-slate-800 p-4 flex items-center justify-between shadow-sm shrink-0">
         <div className="flex items-center gap-3">
           <Link to="/" className="text-sm font-bold text-slate-400 hover:text-white flex items-center gap-1 transition-colors">
             <ArrowRight size={16} className="rotate-180" /> Back to Dashboard
@@ -396,7 +396,7 @@ export default function SystemArchitecture() {
               <button
                 onClick={fastForward}
                 disabled={isDone}
-                className="flex items-center gap-2 px-4 py-2.5 bg-[#111] border border-slate-700 text-slate-300 hover:bg-slate-800 rounded-lg font-bold transition-all disabled:opacity-50 text-sm shadow-sm"
+                className="flex items-center gap-2 px-4 py-2.5 bg-[#111c28] border border-slate-700 text-slate-300 hover:bg-slate-800 rounded-lg font-bold transition-all disabled:opacity-50 text-sm shadow-sm"
               >
                 <FastForward size={16} />
                 Insta-Resolve
@@ -408,7 +408,7 @@ export default function SystemArchitecture() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 flex-1 min-h-[400px] pb-4">
             
             {/* Left Column: Complaint Selector */}
-            <div className="md:col-span-3 flex flex-col gap-3 h-full bg-[#0a0a0a] rounded-xl border border-slate-800 p-3 overflow-y-auto">
+            <div className="md:col-span-3 flex flex-col gap-3 h-full bg-[#0a1119] rounded-xl border border-slate-800 p-3 overflow-y-auto">
               <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1 font-mono px-1 flex items-center gap-2">
                 <Activity size={12} className="text-rose-500" />
                 Live Incidents
@@ -436,7 +436,7 @@ export default function SystemArchitecture() {
             </div>
 
             {/* Middle Column: REAL Leaflet Map */}
-            <div className="md:col-span-6 bg-[#0a0a0a] border border-slate-800 rounded-xl shadow-2xl overflow-hidden flex flex-col relative h-[500px] md:h-full z-0">
+            <div className="md:col-span-6 bg-[#0a1119] border border-slate-800 rounded-xl shadow-2xl overflow-hidden flex flex-col relative h-[500px] md:h-full z-0">
               
               <div className="p-3 border-b border-slate-800/80 bg-black/50 backdrop-blur-md z-[1000] flex justify-between items-center absolute top-0 left-0 right-0">
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-mono flex items-center gap-2">
@@ -457,7 +457,7 @@ export default function SystemArchitecture() {
                   center={activeCase.center} 
                   zoom={activeCase.zoom} 
                   scrollWheelZoom={true}
-                  className="w-full h-full bg-[#090909]"
+                  className="w-full h-full bg-[#05080d]"
                   zoomControl={true}
                   style={{ width: '100%', height: '100%' }}
                 >
@@ -548,7 +548,7 @@ export default function SystemArchitecture() {
 
             {/* Right Column: Terminal Trace Log */}
             <div className="md:col-span-3 bg-black rounded-xl shadow-xl overflow-hidden flex flex-col h-full border border-slate-800">
-              <div className="p-3 border-b border-slate-900 bg-[#050505] flex items-center justify-between shrink-0">
+              <div className="p-3 border-b border-slate-900 bg-[#05080d] flex items-center justify-between shrink-0">
                 <div className="flex items-center gap-2">
                   <Terminal size={12} className="text-slate-500" />
                   <span className="text-[10px] font-mono text-slate-500 tracking-wider">server_log.txt</span>

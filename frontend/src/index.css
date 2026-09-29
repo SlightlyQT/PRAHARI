@@ -2,26 +2,24 @@
 @import "leaflet/dist/leaflet.css";
 @import "@xyflow/react/dist/style.css";
 
-/* High-End Editorial Design System - P.R.A.H.A.R.I. (Blue + White + Purple 60-30-10 Theme) */
+/* P.R.A.H.A.R.I. Cyber Ops Theme — near-black base, neon cyan primary, terminal green accent */
 :root {
-  /* 60% Dominant: Clean White / Neutral Grounding */
-  --bg-base: #F8FAFC;
-  --bg-surface: #FFFFFF;
+  color-scheme: dark;
+  --bg-base: #05080D;
+  --bg-surface: #0A1119;
 
-  --color-text-primary: #0F172A;
-  --color-text-secondary: #475569;
-  --color-text-muted: #94A3B8;
+  --color-text-primary: #E2E8F0;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
 
-  /* 30% Secondary: Structural Blue */
-  --color-cobalt: #2563EB;
-  --color-blue-deep: #1E40AF;
-  --color-sky: #0284C7;
+  --color-cobalt: #22D3EE;
+  --color-blue-deep: #0891B2;
+  --color-sky: #67E8F9;
 
-  /* 10% Accent: High-Impact Purple */
-  --color-purple: #7C3AED;
-  --color-purple-light: #F3E8FF;
-  --color-amber: #D97706;
-  --color-rose: #E11D48;
+  --color-purple: #34D399;
+  --color-purple-light: rgba(52, 211, 153, 0.12);
+  --color-amber: #FBBF24;
+  --color-rose: #F43F5E;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace, sans-serif;
@@ -36,71 +34,90 @@
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: #F8FAFC;
-    color: #0F172A;
+    background-color: #05080D;
+    color: #E2E8F0;
     font-family: var(--font-sans);
     overflow-x: hidden;
     overflow-y: auto;
   }
 
   *:focus-visible {
-    outline: 2px solid #7C3AED !important;
+    outline: 2px solid #22D3EE !important;
     outline-offset: 2px !important;
+  }
+
+  ::selection {
+    background: rgba(34, 211, 238, 0.35);
+    color: #FFFFFF;
   }
 }
 
-/* Custom Sleek Scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F8F8F6;
+  background: #05080D;
 }
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #1E293B;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+  background: #0E7490;
 }
 
-/* Tactical Light Dot Matrix Grid Background (60% White + 30% Blue + 10% Purple Glow) */
+/* Cyber grid background: cyan line grid + top glow + faint scanlines */
 .tactical-grid-bg {
-  background-color: #F8FAFC;
-  background-image: 
-    radial-gradient(ellipse at 50% 10%, rgba(124, 58, 237, 0.08) 0%, rgba(37, 99, 235, 0.04) 45%, rgba(248, 250, 252, 0.98) 80%),
-    radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.04) 1px, transparent 0);
-  background-size: 100% 100%, 24px 24px;
+  background-color: #05080D;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(34, 211, 238, 0.10) 0%, rgba(16, 185, 129, 0.04) 40%, transparent 70%),
+    linear-gradient(rgba(34, 211, 238, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.045) 1px, transparent 1px);
+  background-size: 100% 1400px, 40px 40px, 40px 40px;
+  background-repeat: no-repeat, repeat, repeat;
+}
+.tactical-grid-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.012) 0px, rgba(255, 255, 255, 0.012) 1px, transparent 1px, transparent 3px);
 }
 
-/* High-End Bento Cards (60% White Surface, 30% Blue Structural Borders, 10% Purple Hover Accent) */
+/* Panels */
 .bento-card-light {
-  background: #FFFFFF;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 28px;
-  box-shadow: 
-    0 1px 2px rgba(0, 0, 0, 0.02),
-    0 8px 32px rgba(15, 23, 42, 0.03),
-    0 20px 48px rgba(37, 99, 235, 0.02);
+  background: rgba(10, 17, 25, 0.85);
+  border: 1px solid rgba(34, 211, 238, 0.12);
+  border-radius: 20px;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 20px 48px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .bento-card-light:hover {
-  border-color: rgba(124, 58, 237, 0.4);
-  box-shadow: 
-    0 4px 12px rgba(124, 58, 237, 0.08),
-    0 16px 40px rgba(37, 99, 235, 0.08),
-    0 32px 64px rgba(15, 23, 42, 0.04);
+  border-color: rgba(34, 211, 238, 0.4);
+  box-shadow:
+    0 0 24px rgba(34, 211, 238, 0.10),
+    0 20px 48px rgba(0, 0, 0, 0.5);
   transform: translateY(-3px);
 }
 
 .bento-card-featured {
-  background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
-  border: 1.5px solid rgba(124, 58, 237, 0.35);
-  border-radius: 28px;
-  box-shadow: 
-    0 10px 40px rgba(124, 58, 237, 0.1),
-    0 1px 3px rgba(0, 0, 0, 0.03);
+  background: linear-gradient(135deg, rgba(10, 17, 25, 0.95) 0%, rgba(6, 30, 38, 0.9) 100%);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  border-radius: 20px;
+  box-shadow:
+    0 0 32px rgba(52, 211, 153, 0.10),
+    0 20px 48px rgba(0, 0, 0, 0.5);
+}
+
+/* Neon glow for headline accents */
+.neon-text {
+  text-shadow: 0 0 22px rgba(34, 211, 238, 0.35);
 }
 
 /* Cobalt Laser Flow Animation */
@@ -121,15 +138,15 @@
 /* Cobalt Tactical Pulse Animation */
 @keyframes cobalt-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.45);
     transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 0 12px rgba(37, 99, 235, 0);
+    box-shadow: 0 0 0 12px rgba(34, 211, 238, 0);
     transform: scale(1.03);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0);
     transform: scale(1);
   }
 }
@@ -138,13 +155,13 @@
   animation: cobalt-pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-/* Purple Pulse Glow Animation for High Risk Alerts & Metric Cards */
+/* Green Pulse Glow Animation for High Risk Alerts & Metric Cards */
 @keyframes pulseGlow {
   0% {
-    box-shadow: 0 0 15px rgba(124, 58, 237, 0.25);
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.18);
   }
   100% {
-    box-shadow: 0 0 30px rgba(124, 58, 237, 0.55);
+    box-shadow: 0 0 30px rgba(52, 211, 153, 0.4);
   }
 }
 
@@ -168,21 +185,38 @@
   animation: amber-pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-/* Leaflet Light Customizer & Radar Markers */
+/* Leaflet dark customizer & radar markers */
 .leaflet-container {
-  background: #F1F5F9 !important;
+  background: #05080D !important;
 }
 .leaflet-popup-content-wrapper {
-  background: #FFFFFF !important;
-  color: #0F172A !important;
-  border: 1px solid #E2E8F0 !important;
-  border-radius: 16px !important;
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12) !important;
+  background: #0A1119 !important;
+  color: #E2E8F0 !important;
+  border: 1px solid rgba(34, 211, 238, 0.3) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6) !important;
   padding: 4px !important;
 }
 .leaflet-popup-tip {
-  background: #FFFFFF !important;
+  background: #0A1119 !important;
 }
+
+/* MapLibre / React Flow controls on dark */
+.maplibregl-ctrl-attrib, .maplibregl-ctrl-attrib.maplibregl-compact {
+  background: rgba(5, 8, 13, 0.8) !important;
+  color: #64748B !important;
+}
+.maplibregl-ctrl-attrib a { color: #94A3B8 !important; }
+.maplibregl-ctrl-attrib-button { filter: invert(1) !important; }
+.react-flow__controls-button {
+  background: #0A1119 !important;
+  border-bottom: 1px solid rgba(34, 211, 238, 0.15) !important;
+  fill: #67E8F9 !important;
+  color: #67E8F9 !important;
+}
+.react-flow__controls-button:hover { background: #111C28 !important; }
+.react-flow__attribution { background: transparent !important; }
+.react-flow__attribution a { color: #334155 !important; }
 
 @keyframes radar-pulse-wave {
   0% {

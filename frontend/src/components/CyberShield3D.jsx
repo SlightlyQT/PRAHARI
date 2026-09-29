@@ -49,8 +49,8 @@ export default function CyberShield3D({ onExploreTrace }) {
       className="relative w-full h-[480px] flex items-center justify-center perspective-[1200px] select-none cursor-pointer group"
     >
       {/* Soft Ambient Background Radial Spotlights */}
-      <div className="absolute w-[400px] h-[400px] rounded-full bg-blue-600/15 blur-[130px] pointer-events-none"></div>
-      <div className="absolute w-[280px] h-[280px] rounded-full bg-sky-400/15 blur-[100px] pointer-events-none"></div>
+      <div className="absolute w-[400px] h-[400px] rounded-full bg-cyan-400/15 blur-[130px] pointer-events-none"></div>
+      <div className="absolute w-[280px] h-[280px] rounded-full bg-cyan-400/15 blur-[100px] pointer-events-none"></div>
 
       <motion.div
         style={{
@@ -63,48 +63,48 @@ export default function CyberShield3D({ onExploreTrace }) {
       >
         {/* 3D Tactical Disk Base Grid */}
         <div
-          className="absolute w-[460px] h-[460px] rounded-full opacity-35 border-2 border-dashed border-blue-400/60 pointer-events-none"
+          className="absolute w-[460px] h-[460px] rounded-full opacity-35 border-2 border-dashed border-cyan-400/60 pointer-events-none"
           style={{
             transform: "rotateX(74deg) translateZ(-50px)",
-            background: "radial-gradient(circle, rgba(37,99,235,0.18) 0%, rgba(248,248,246,0) 75%)"
+            background: "radial-gradient(circle, rgba(34,211,238,0.16) 0%, rgba(5,8,13,0) 75%)"
           }}
         ></div>
 
         {/* Outer Orbit Ring 1 (Sweeper) */}
         <div
-          className="absolute w-[360px] h-[360px] rounded-full border border-blue-500/40 radar-sweeper pointer-events-none"
+          className="absolute w-[360px] h-[360px] rounded-full border border-cyan-400/40 radar-sweeper pointer-events-none"
           style={{ transform: "rotateX(74deg) translateZ(-15px)" }}
         >
-          <div className="w-5 h-5 rounded-full bg-blue-600 border-2 border-white shadow-[0_0_20px_#2563EB] absolute -top-2.5 left-1/2 -translate-x-1/2"></div>
+          <div className="w-5 h-5 rounded-full bg-cyan-400 border-2 border-white/10 shadow-[0_0_20px_#22D3EE] absolute -top-2.5 left-1/2 -translate-x-1/2"></div>
         </div>
 
         {/* Counter-Rotating Orbit Ring 2 */}
         <div
-          className="absolute w-[270px] h-[270px] rounded-full border-2 border-dashed border-sky-400/50 pointer-events-none"
+          className="absolute w-[270px] h-[270px] rounded-full border-2 border-dashed border-cyan-400/50 pointer-events-none"
           style={{
             transform: "rotateX(74deg) rotateZ(45deg) translateZ(15px)",
             animation: "radar-sweep-rotate 10s linear infinite reverse"
           }}
         >
-          <div className="w-4 h-4 rounded-full bg-sky-400 border-2 border-white shadow-[0_0_16px_#38BDF8] absolute -top-2 left-1/2 -translate-x-1/2"></div>
+          <div className="w-4 h-4 rounded-full bg-cyan-400 border-2 border-white/10 shadow-[0_0_16px_#67E8F9] absolute -top-2 left-1/2 -translate-x-1/2"></div>
         </div>
 
         {/* Counter-Rotating Orbit Ring 3 */}
         <div
-          className="absolute w-[190px] h-[190px] rounded-full border border-indigo-500/50 pointer-events-none"
+          className="absolute w-[190px] h-[190px] rounded-full border border-cyan-400/50 pointer-events-none"
           style={{
             transform: "rotateX(74deg) rotateZ(-60deg) translateZ(35px)",
             animation: "radar-sweep-rotate 6s linear infinite"
           }}
         >
-          <div className="w-3.5 h-3.5 rounded-full bg-indigo-500 border-2 border-white shadow-[0_0_14px_#6366F1] absolute -top-1.5 left-1/2 -translate-x-1/2"></div>
+          <div className="w-3.5 h-3.5 rounded-full bg-cyan-500 border-2 border-white/10 shadow-[0_0_14px_#34D399] absolute -top-1.5 left-1/2 -translate-x-1/2"></div>
         </div>
 
         {/* SVG Laser Flow Trajectories Connecting 3D Spheres */}
         <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
-          <path d="M 90 140 C 180 80, 240 80, 240 240" fill="none" stroke="#0284C7" strokeWidth="2.5" strokeDasharray="6 3" className="laser-trace-cyan" />
-          <path d="M 240 240 C 280 340, 360 340, 390 200" fill="none" stroke="#2563EB" strokeWidth="3" strokeDasharray="6 3" className="laser-trace-cyan" />
-          <path d="M 390 200 C 420 120, 480 120, 480 300" fill="none" stroke="#E11D48" strokeWidth="3.5" strokeDasharray="6 3" className="laser-trace-cyan" />
+          <path d="M 90 140 C 180 80, 240 80, 240 240" fill="none" stroke="#22D3EE" strokeWidth="2.5" strokeDasharray="6 3" className="laser-trace-cyan" />
+          <path d="M 240 240 C 280 340, 360 340, 390 200" fill="none" stroke="#34D399" strokeWidth="3" strokeDasharray="6 3" className="laser-trace-cyan" />
+          <path d="M 390 200 C 420 120, 480 120, 480 300" fill="none" stroke="#F43F5E" strokeWidth="3.5" strokeDasharray="6 3" className="laser-trace-cyan" />
         </svg>
 
         {/* Dynamic Floating Ambient Particles */}
@@ -123,7 +123,7 @@ export default function CyberShield3D({ onExploreTrace }) {
               ease: "easeInOut",
               delay: Math.random() * 2
             }}
-            className="absolute w-1.5 h-1.5 rounded-full bg-blue-400 shadow-[0_0_8px_#38BDF8] pointer-events-none"
+            className="absolute w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#38BDF8] pointer-events-none"
             style={{
               left: `${20 + Math.random() * 60}%`,
               top: `${20 + Math.random() * 60}%`,
@@ -138,11 +138,11 @@ export default function CyberShield3D({ onExploreTrace }) {
         <motion.div
           animate={{ y: [0, -8, 0], scale: [1, 1.05, 1] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-16 top-16 z-20 w-12 h-12 rounded-full bg-gradient-to-tr from-sky-600 to-sky-400 p-0.5 border-2 border-white shadow-[0_8px_24px_rgba(2,132,199,0.5)] flex items-center justify-center"
+          className="absolute left-16 top-16 z-20 w-12 h-12 rounded-full bg-gradient-to-tr from-cyan-400 to-cyan-400 p-0.5 border-2 border-white/10 shadow-[0_0_24px_rgba(34,211,238,0.5)] flex items-center justify-center"
           style={{ transform: "translateZ(90px)" }}
         >
-          <div className="w-full h-full rounded-full bg-sky-500/20 backdrop-blur-sm flex items-center justify-center text-white">
-            <span className="w-4 h-4 rounded-full bg-white shadow-sm"></span>
+          <div className="w-full h-full rounded-full bg-cyan-500/20 backdrop-blur-sm flex items-center justify-center text-white">
+            <span className="w-4 h-4 rounded-full bg-[#0a1119] shadow-sm"></span>
           </div>
         </motion.div>
 
@@ -150,10 +150,10 @@ export default function CyberShield3D({ onExploreTrace }) {
         <motion.div
           animate={{ y: [0, 8, 0], scale: [1, 1.08, 1] }}
           transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          className="absolute right-20 top-14 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-400 p-0.5 border-2 border-white shadow-[0_10px_30px_rgba(37,99,235,0.6)] flex items-center justify-center ring-4 ring-blue-500/20"
+          className="absolute right-20 top-14 z-20 w-14 h-14 rounded-full bg-gradient-to-tr from-cyan-300 via-cyan-400 to-cyan-400 p-0.5 border-2 border-white/10 shadow-[0_0_30px_rgba(34,211,238,0.55)] flex items-center justify-center ring-4 ring-cyan-400/20"
           style={{ transform: "translateZ(105px)" }}
         >
-          <div className="w-full h-full rounded-full bg-blue-600/20 backdrop-blur-sm flex items-center justify-center text-white">
+          <div className="w-full h-full rounded-full bg-cyan-400/20 backdrop-blur-sm flex items-center justify-center text-white">
             <Zap className="w-6 h-6 text-white" />
           </div>
         </motion.div>
@@ -162,11 +162,11 @@ export default function CyberShield3D({ onExploreTrace }) {
         <motion.div
           animate={{ y: [0, -7, 0], scale: [1, 1.05, 1] }}
           transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute left-20 bottom-16 z-20 w-11 h-11 rounded-full bg-gradient-to-tr from-amber-600 to-amber-400 p-0.5 border-2 border-white shadow-[0_8px_24px_rgba(217,119,6,0.5)] flex items-center justify-center"
+          className="absolute left-20 bottom-16 z-20 w-11 h-11 rounded-full bg-gradient-to-tr from-amber-400 to-amber-400 p-0.5 border-2 border-white/10 shadow-[0_8px_24px_rgba(217,119,6,0.5)] flex items-center justify-center"
           style={{ transform: "translateZ(75px)" }}
         >
           <div className="w-full h-full rounded-full bg-amber-500/20 backdrop-blur-sm flex items-center justify-center text-white">
-            <span className="w-3.5 h-3.5 rounded-full bg-white shadow-sm"></span>
+            <span className="w-3.5 h-3.5 rounded-full bg-[#0a1119] shadow-sm"></span>
           </div>
         </motion.div>
 
@@ -174,27 +174,27 @@ export default function CyberShield3D({ onExploreTrace }) {
         <motion.div
           animate={{ y: [0, 9, 0], scale: [1, 1.1, 1] }}
           transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1.4 }}
-          className="absolute right-14 bottom-14 z-20 w-16 h-16 rounded-full bg-gradient-to-tr from-rose-700 via-rose-600 to-rose-400 p-0.5 border-2 border-white shadow-[0_12px_36px_rgba(225,29,72,0.65)] flex items-center justify-center ring-4 ring-rose-500/30"
+          className="absolute right-14 bottom-14 z-20 w-16 h-16 rounded-full bg-gradient-to-tr from-rose-300 via-rose-400 to-rose-400 p-0.5 border-2 border-white/10 shadow-[0_12px_36px_rgba(225,29,72,0.65)] flex items-center justify-center ring-4 ring-rose-400/30"
           style={{ transform: "translateZ(115px)" }}
         >
-          <div className="relative w-full h-full rounded-full bg-rose-600/30 backdrop-blur-sm flex items-center justify-center text-white">
-            <span className="w-4 h-4 rounded-full bg-white animate-ping"></span>
+          <div className="relative w-full h-full rounded-full bg-rose-400/30 backdrop-blur-sm flex items-center justify-center text-white">
+            <span className="w-4 h-4 rounded-full bg-[#0a1119] animate-ping"></span>
           </div>
         </motion.div>
 
         {/* Interactive Shockwave Pulse Ring */}
         {isPulseActive && (
-          <div className="absolute w-32 h-32 rounded-full bg-blue-500/30 border-2 border-cyan-400 animate-ping z-30 pointer-events-none"></div>
+          <div className="absolute w-32 h-32 rounded-full bg-cyan-500/30 border-2 border-cyan-400 animate-ping z-30 pointer-events-none"></div>
         )}
 
         {/* Central PRAHARI Holographic Cyber Core Orb */}
         <div
-          className="relative z-30 w-28 h-28 rounded-3xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-sky-400 p-0.5 shadow-[0_16px_50px_rgba(37,99,235,0.5)] flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+          className="relative z-30 w-28 h-28 rounded-3xl bg-gradient-to-tr from-cyan-400 via-cyan-500 to-emerald-400 p-0.5 shadow-[0_0_50px_rgba(34,211,238,0.45)] flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
           style={{ transform: "translateZ(80px)" }}
         >
-          <div className="w-full h-full rounded-[22px] bg-white border border-slate-100 flex flex-col items-center justify-center text-slate-900 space-y-1 shadow-inner">
-            <Shield className="w-10 h-10 text-blue-600 group-hover:rotate-12 transition-transform duration-300" />
-            <span className="text-[10px] font-mono font-black text-blue-700 tracking-widest">P.R.A.H.A.R.I.</span>
+          <div className="w-full h-full rounded-[22px] bg-[#0a1119] border border-white/5 flex flex-col items-center justify-center text-slate-100 space-y-1 shadow-inner">
+            <Shield className="w-10 h-10 text-cyan-400 group-hover:rotate-12 transition-transform duration-300" />
+            <span className="text-[10px] font-mono font-black text-cyan-400 tracking-widest">P.R.A.H.A.R.I.</span>
           </div>
         </div>
 

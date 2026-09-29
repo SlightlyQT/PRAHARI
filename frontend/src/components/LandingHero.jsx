@@ -12,11 +12,11 @@ export default function LandingHero({
   onExploreMap
 }) {
   return (
-    <section id="hero" className="relative min-h-[92vh] flex flex-col justify-center pt-36 pb-24 overflow-hidden text-slate-900">
+    <section id="hero" className="relative min-h-[92vh] flex flex-col justify-center pt-36 pb-24 overflow-hidden text-slate-100">
       
       {/* Background Soft Ambient Spotlights (Blue + Purple Accents) */}
-      <div className="absolute top-12 left-1/4 -translate-x-1/2 w-[700px] h-[700px] bg-purple-600/10 blur-[180px] rounded-full pointer-events-none z-0"></div>
-      <div className="absolute top-1/3 right-10 w-[550px] h-[550px] bg-blue-600/10 blur-[160px] rounded-full pointer-events-none z-0"></div>
+      <div className="absolute top-12 left-1/4 -translate-x-1/2 w-[700px] h-[700px] bg-emerald-400/10 blur-[180px] rounded-full pointer-events-none z-0"></div>
+      <div className="absolute top-1/3 right-10 w-[550px] h-[550px] bg-cyan-400/10 blur-[160px] rounded-full pointer-events-none z-0"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         
@@ -32,25 +32,25 @@ export default function LandingHero({
           >
             {/* Live Status Badge & Localized Complaint Selector */}
             <div className="flex flex-wrap items-center gap-3">
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-blue-50 border border-blue-200 text-xs font-mono text-blue-800 font-bold shadow-xs">
-                <span className="w-2.5 h-2.5 rounded-full bg-purple-600 animate-ping"></span>
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-cyan-500/8 border border-cyan-500/30 text-xs font-mono text-cyan-300 font-bold shadow-xs">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
                 <span className="tracking-wider uppercase">P.R.A.H.A.R.I. CYBER ENGINE v2.4</span>
                 <span className="text-slate-300">|</span>
-                <span className="text-slate-600 font-medium">LIVE NCRP 1930 FEED</span>
+                <span className="text-slate-400 font-medium">LIVE NCRP 1930 FEED</span>
               </div>
 
               {/* Localized Case Selector Dropdown */}
               {complaints.length > 0 && (
                 <div className="flex items-center gap-2 font-mono text-xs">
-                  <span className="text-slate-400 font-bold hidden sm:inline">DOSSIER:</span>
+                  <span className="text-slate-500 font-bold hidden sm:inline">DOSSIER:</span>
                   <select
                     aria-label="Select Complaint Case"
                     value={selectedComplaintId}
                     onChange={(e) => onSelectComplaint(e.target.value)}
-                    className="bg-white text-slate-900 border border-blue-200 text-xs rounded-2xl px-3 py-2 focus:outline-none focus:border-purple-600 cursor-pointer font-bold shadow-xs"
+                    className="bg-[#0a1119] text-slate-100 border border-cyan-500/30 text-xs rounded-2xl px-3 py-2 focus:outline-none focus:border-emerald-400 cursor-pointer font-bold shadow-xs"
                   >
                     {complaints.map((c) => (
-                      <option key={c.complaint_id} value={c.complaint_id} className="bg-white text-slate-900">
+                      <option key={c.complaint_id} value={c.complaint_id} className="bg-[#0a1119] text-slate-100">
                         {c.complaint_id} ({c.victim_city})
                       </option>
                     ))}
@@ -60,16 +60,16 @@ export default function LandingHero({
             </div>
 
             {/* Main Impact Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-950 tracking-tight leading-[1.08] font-sans">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-50 tracking-tight leading-[1.08] font-sans">
               Predictive AI that <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-600 to-purple-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-cyan-400 to-emerald-400">
                 intercepts ATM cashouts
               </span> <br />
               before fraud payout.
             </h1>
 
             {/* Sub-headline (Opened up margin-top to give typography breathing room) */}
-            <p className="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed font-normal mt-8 mb-8">
+            <p className="text-base sm:text-lg text-slate-400 max-w-2xl leading-relaxed font-normal mt-8 mb-8">
               Automated multi-hop mule graph reconstruction, spatial ATM cluster prediction, and automated bank lien dispatch engineered for Indian LEAs and NPCI financial gateways.
             </p>
 
@@ -77,9 +77,9 @@ export default function LandingHero({
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 font-mono text-xs pt-2">
               <button
                 onClick={onExploreTrace}
-                className="group relative px-7 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold tracking-wider uppercase transition-all shadow-xl shadow-blue-600/25 flex items-center gap-2.5 cursor-pointer active:scale-98 overflow-hidden"
+                className="group relative px-7 py-4 rounded-2xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold tracking-wider uppercase transition-all shadow-xl shadow-cyan-500/25 flex items-center gap-2.5 cursor-pointer active:scale-98 overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/0 via-white/25 to-blue-400/0 opacity-0 group-hover:opacity-100 group-hover:translate-x-full transition-all duration-700 -translate-x-full z-0"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/5 via-[#0a1119]/25 to-cyan-400/5 opacity-0 group-hover:opacity-100 group-hover:translate-x-full transition-all duration-700 -translate-x-full z-0"></div>
                 <Zap className="w-4 h-4 fill-white group-hover:scale-110 transition-transform relative z-10" />
                 <span className="relative z-10">START INVESTIGATION</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform relative z-10" />
@@ -87,40 +87,40 @@ export default function LandingHero({
 
               <button
                 onClick={onExploreMap}
-                className="group px-6 py-4 rounded-2xl bg-white hover:bg-blue-50/50 text-blue-900 font-bold tracking-wider uppercase border border-blue-200 transition-all flex items-center gap-2 cursor-pointer shadow-xs hover:shadow-md hover:border-blue-300 active:scale-98"
+                className="group px-6 py-4 rounded-2xl bg-[#0a1119] hover:bg-cyan-500/5 text-cyan-300 font-bold tracking-wider uppercase border border-cyan-500/30 transition-all flex items-center gap-2 cursor-pointer shadow-xs hover:shadow-md hover:border-cyan-400/50 active:scale-98"
               >
-                <MapPin className="w-4 h-4 text-blue-600 group-hover:-translate-y-0.5 transition-transform" />
+                <MapPin className="w-4 h-4 text-cyan-400 group-hover:-translate-y-0.5 transition-transform" />
                 <span>SPATIAL ATM RADAR</span>
               </button>
             </div>
 
             {/* 4-Item Stats Bento Cards Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-slate-200/80 font-mono">
-              <div className="group p-4 rounded-2xl bg-white border border-blue-100 shadow-xs hover:shadow-lg hover:border-purple-300 hover:-translate-y-1 transition-all duration-300 space-y-1">
-                <div className="text-xs text-slate-400 font-medium">FUNDS FROZEN</div>
-                <div className="text-xl sm:text-2xl font-black text-slate-950">₹1.42 Cr+</div>
-                <div className="text-[10px] text-purple-600 font-bold flex items-center gap-1">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-cyan-500/10 font-mono">
+              <div className="group p-4 rounded-2xl bg-[#0a1119] border border-cyan-500/15 shadow-xs hover:shadow-lg hover:border-emerald-400/50 hover:-translate-y-1 transition-all duration-300 space-y-1">
+                <div className="text-xs text-slate-500 font-medium">FUNDS FROZEN</div>
+                <div className="text-xl sm:text-2xl font-black text-slate-50">₹1.42 Cr+</div>
+                <div className="text-[10px] text-emerald-400 font-bold flex items-center gap-1">
                   <TrendingUp className="w-3 h-3 group-hover:animate-bounce" />
                   <span>+28% this week</span>
                 </div>
               </div>
 
-              <div className="group p-4 rounded-2xl bg-white border border-blue-100 shadow-xs hover:shadow-lg hover:border-purple-300 hover:-translate-y-1 transition-all duration-300 space-y-1">
-                <div className="text-xs text-slate-400 font-medium">TRACE LATENCY</div>
-                <div className="text-xl sm:text-2xl font-black text-slate-950">&lt; 3.2 Min</div>
-                <div className="text-[10px] text-blue-600 font-bold">Sub-second graph</div>
+              <div className="group p-4 rounded-2xl bg-[#0a1119] border border-cyan-500/15 shadow-xs hover:shadow-lg hover:border-emerald-400/50 hover:-translate-y-1 transition-all duration-300 space-y-1">
+                <div className="text-xs text-slate-500 font-medium">TRACE LATENCY</div>
+                <div className="text-xl sm:text-2xl font-black text-slate-50">&lt; 3.2 Min</div>
+                <div className="text-[10px] text-cyan-400 font-bold">Sub-second graph</div>
               </div>
 
-              <div className="group p-4 rounded-2xl bg-white border border-blue-100 shadow-xs hover:shadow-lg hover:border-purple-300 hover:-translate-y-1 transition-all duration-300 space-y-1">
-                <div className="text-xs text-slate-400 font-medium">GRAPH ACCURACY</div>
-                <div className="text-xl sm:text-2xl font-black text-purple-600 group-hover:text-purple-500 transition-colors">99.4%</div>
-                <div className="text-[10px] text-slate-500 font-bold">Neo4j ML Model</div>
+              <div className="group p-4 rounded-2xl bg-[#0a1119] border border-cyan-500/15 shadow-xs hover:shadow-lg hover:border-emerald-400/50 hover:-translate-y-1 transition-all duration-300 space-y-1">
+                <div className="text-xs text-slate-500 font-medium">GRAPH ACCURACY</div>
+                <div className="text-xl sm:text-2xl font-black text-emerald-400 group-hover:text-emerald-400 transition-colors">99.4%</div>
+                <div className="text-[10px] text-slate-400 font-bold">Neo4j ML Model</div>
               </div>
 
-              <div className="group p-4 rounded-2xl bg-white border border-blue-100 shadow-xs hover:shadow-lg hover:border-purple-300 hover:-translate-y-1 transition-all duration-300 space-y-1">
-                <div className="text-xs text-slate-400 font-medium">MULE ACCOUNTS</div>
-                <div className="text-xl sm:text-2xl font-black text-blue-600 group-hover:text-blue-500 transition-colors">12,400+</div>
-                <div className="text-[10px] text-purple-600 font-bold">Flagged & Blocked</div>
+              <div className="group p-4 rounded-2xl bg-[#0a1119] border border-cyan-500/15 shadow-xs hover:shadow-lg hover:border-emerald-400/50 hover:-translate-y-1 transition-all duration-300 space-y-1">
+                <div className="text-xs text-slate-500 font-medium">MULE ACCOUNTS</div>
+                <div className="text-xl sm:text-2xl font-black text-cyan-400 group-hover:text-cyan-400 transition-colors">12,400+</div>
+                <div className="text-[10px] text-emerald-400 font-bold">Flagged & Blocked</div>
               </div>
             </div>
 

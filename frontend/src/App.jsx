@@ -83,7 +83,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={
-        <div className="min-h-screen bg-[#F8F8F6] tactical-grid-bg text-slate-900 font-sans selection:bg-blue-600 selection:text-white relative">
+        <div className="min-h-screen bg-[#05080d] tactical-grid-bg text-slate-100 font-sans selection:bg-cyan-400 selection:text-white relative">
           {/* Floating Header */}
           <Navbar
             complaints={complaints}
@@ -116,13 +116,14 @@ export default function App() {
             />
 
             {/* Banner CTA to the separate Trace Route */}
-            <section id="architecture" className="py-16 bg-blue-600 text-white flex flex-col items-center text-center px-4">
+            <section id="architecture" className="py-20 bg-gradient-to-b from-[#05080d] via-cyan-950/40 to-[#05080d] border-y border-cyan-500/20 text-slate-100 flex flex-col items-center text-center px-4">
               <div className="max-w-3xl">
+                <p className="font-mono text-xs tracking-[0.3em] text-emerald-400 mb-4">&gt; ./prahari --trace --verbose</p>
                 <h2 className="text-3xl font-black mb-4">Want to see exactly how our algorithm reasons?</h2>
-                <p className="text-blue-100 mb-8 max-w-xl mx-auto">
+                <p className="text-slate-400 mb-8 max-w-xl mx-auto">
                   Step inside the P.R.A.H.A.R.I. engine. Watch the live execution trace as it fetches complaints, traverses graphs, and runs XGBoost predictions.
                 </p>
-                <Link to="/trace" className="inline-flex items-center gap-2 bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                <Link to="/trace" className="inline-flex items-center gap-2 bg-cyan-400 text-slate-950 hover:bg-cyan-300 px-6 py-3 rounded-xl font-bold text-lg shadow-[0_0_30px_rgba(34,211,238,0.35)] transition-all hover:-translate-y-1">
                   <Terminal size={20} />
                   Launch Live Tracer
                 </Link>
