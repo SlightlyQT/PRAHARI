@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Shield, Zap, ChevronRight, LayoutGrid, Cpu, MapPin, Network, Activity } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Navbar({
   onSimulateIntercept
@@ -82,18 +83,32 @@ export default function Navbar({
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               const Icon = item.icon;
+              
+              const baseClasses = `px-3 py-2 rounded-xl flex items-center justify-center gap-2 transition-all text-xs font-bold cursor-pointer shrink-0 min-w-[135px] min-h-[40px] ${
+                isActive
+                  ? 'bg-purple-50 text-purple-700 border border-purple-300/80 shadow-xs font-black'
+                  : 'text-slate-600 hover:text-blue-900 hover:bg-blue-50/50 border border-transparent font-medium'
+              }`;
+
+              if (item.id === 'architecture') {
+                return (
+                  <Link
+                    key={item.id}
+                    to="/trace"
+                    className={baseClasses}
+                  >
+                    <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-purple-600' : 'text-slate-400'}`} />
+                    <span className="whitespace-nowrap">{item.label}</span>
+                  </Link>
+                );
+              }
 
               return (
                 <a
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={() => setActiveSection(item.id)}
-                  className={`px-3 py-2 rounded-xl flex items-center justify-center gap-2 transition-all text-xs font-bold cursor-pointer shrink-0 min-w-[135px] min-h-[40px] ${
-                    isActive
-                      /* Active State: Dynamic purple pill highlight matching active route hash */
-                      ? 'bg-purple-50 text-purple-700 border border-purple-300/80 shadow-xs font-black'
-                      : 'text-slate-600 hover:text-blue-900 hover:bg-blue-50/50 border border-transparent font-medium'
-                  }`}
+                  className={baseClasses}
                 >
                   <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-purple-600' : 'text-slate-400'}`} />
                   <span className="whitespace-nowrap">{item.label}</span>
@@ -132,16 +147,33 @@ export default function Navbar({
             const isActive = activeSection === item.id;
             const Icon = item.icon;
 
+            const baseClassesMobile = `flex flex-col items-center justify-center min-w-[50px] min-h-[50px] px-1 py-1 rounded-xl transition-all ${
+              isActive
+                ? 'text-purple-700 font-extrabold bg-purple-50 border border-purple-200'
+                : 'text-slate-500 font-medium hover:text-blue-600'
+            }`;
+
+            if (item.id === 'architecture') {
+              return (
+                <Link
+                  key={item.id}
+                  to="/trace"
+                  className={baseClassesMobile}
+                >
+                  <Icon className={`w-5 h-5 ${isActive ? 'text-purple-600 stroke-[2.5]' : 'text-slate-500 stroke-[1.75]'}`} />
+                  <span className="text-[9px] mt-0.5 tracking-tight uppercase truncate max-w-[64px]">
+                    {item.label.split(' ')[0]}
+                  </span>
+                </Link>
+              );
+            }
+
             return (
               <a
                 key={item.id}
                 href={`#${item.id}`}
                 onClick={() => setActiveSection(item.id)}
-                className={`flex flex-col items-center justify-center min-w-[50px] min-h-[50px] px-1 py-1 rounded-xl transition-all ${
-                  isActive
-                    ? 'text-purple-700 font-extrabold bg-purple-50 border border-purple-200'
-                    : 'text-slate-500 font-medium hover:text-blue-600'
-                }`}
+                className={baseClassesMobile}
               >
                 <Icon className={`w-5 h-5 ${isActive ? 'text-purple-600 stroke-[2.5]' : 'text-slate-500 stroke-[1.75]'}`} />
                 <span className="text-[9px] mt-0.5 tracking-tight uppercase truncate max-w-[64px]">
